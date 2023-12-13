@@ -3,7 +3,7 @@ import {Product} from "./product.model";
 
 @Injectable()
 export class ProductsService {
-    products: Product[] = [];
+    private products: Product[] = [];
 
     insertProduct(title: string, description: string, price: number) {
         const productID: string = new Date().toString();
@@ -12,4 +12,7 @@ export class ProductsService {
         return productID;
     }
 
+    getProducts() {
+        return [...this.products];
+    }
 }
