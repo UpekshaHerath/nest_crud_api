@@ -22,22 +22,22 @@ export class ProductsController {
     }
 
     @Get(':id')
-    getSingleProduct(@Param('id') productId: string) {
-        return this.productService.getSingleProduct(productId);
+    async getSingleProduct(@Param('id') productId: string) {
+        return await this.productService.getSingleProduct(productId);
     }
 
     @Patch(':id')
-    updateProduct(
+    async updateProduct(
         @Param('id') productId: string,
         @Body('title') productTitle: string,
         @Body('description') productDescription: string,
         @Body('price') productPrice: number
     ) {
-        return this.productService.updateProduct(productId, productTitle, productDescription, productPrice);
+        return await this.productService.updateProduct(productId, productTitle, productDescription, productPrice);
     }
 
     @Delete(':id')
-    deleteProduct(@Param('id') productId: string) {
-        return this.productService.deleteProduct(productId);
+    async deleteProduct(@Param('id') productId: string) {
+        return await this.productService.deleteProduct(productId);
     }
 }
